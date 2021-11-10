@@ -10,7 +10,7 @@ import sell from '../homeImage/icon/sell.png';
 
 const Worship = () => {
     return (
-        <Container sx={{textAlign: 'center', fontFamily: 'ubuntu'}}>
+        <Container sx={{textAlign: 'center', fontFamily: 'ubuntu', mb: 5}}>
             <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '600', mb: '6vmin' }} variant="h3">Our Business</Typography>
             <Grid container spacing={3}>
                 <Grid item xs={12} md={4} sm={6}>
