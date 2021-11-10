@@ -1,12 +1,13 @@
 import React from 'react';
+import HomeSlider from '../HeaderSlider/HeaderSlider';
 import Worship from '../Worship/Worship';
 
 const Home = () => {
     return (
-        <div>
-            <h2>I am home</h2>
+        <>
+            <HomeSlider></HomeSlider>
             <Worship></Worship>
-        </div>
+        </>
     );
 };
 
