@@ -1,18 +1,25 @@
 import { Button, Container, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import './SignUp.css';
 
 const SignUp = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
+    const { loginUser, setLoginUser } = useState();
+    const {registerUser} = useAuth();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const loginData = data => setLoginUser(data);
+    console.log(errors);
     
+    const userSubmit = e => {
+        registerUser(loginUser.email, loginUser.password);
+    }
+
     return (
         <Container>
             <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d', mt: 5, mb: 5 }} variant="h4">*Please Ragister</Typography>
-            <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
+            <form className="signup-form" onSubmit={handleSubmit(loginData)}>
                 <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h5">Your Email</Typography>
                 <input type="text" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
                 <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h5">Your Password</Typography>

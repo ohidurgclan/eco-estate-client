@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Home from './Pages/Home/Home/Home';
 import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Footer/Footer';
@@ -14,7 +15,7 @@ import SignUp from './Pages/Login/SignUp/SignUp';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
           <Header></Header>
           <Switch>
@@ -48,7 +49,7 @@ function App() {
         </Switch>
         <Footer></Footer>
         </Router>
-    </>
+    </AuthProvider>
   );
 }
 

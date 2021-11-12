@@ -1,9 +1,10 @@
-import initializeFirebase from "../Pages/Login/Login/Firebase/firebase.init";
+
 import { useState, useEffect } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken, signOut } from "firebase/auth";
+import initializeFirebase from '../Pages/Login/Firebase/firebase.init';
 
 
-// initialize firebase app
+// Initialize Firebase
 initializeFirebase();
 
 const useFirebase = () => {
@@ -68,7 +69,7 @@ const useFirebase = () => {
             }).finally(() => setIsLoading(false));
     }
 
-    // observer user state
+    // Observe User Work
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -91,7 +92,7 @@ const useFirebase = () => {
             .then(data => setAdmin(data.admin))
     }, [user.email])
 
-    const logout = () => {
+    const logOut = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
@@ -122,7 +123,7 @@ const useFirebase = () => {
         registerUser,
         loginUser,
         signInWithGoogle,
-        logout,
+        logOut,
     }
 }
 
