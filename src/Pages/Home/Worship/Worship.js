@@ -15,22 +15,19 @@ const Worship = () => {
                 <Grid style={{ zIndex: '99' }} item xs={12} md={4} sm={4}>
                     <Paper elevation={2}>
                         <img style={{ marginTop: '1rem' }} src={buy} alt="buy a home" loading="lazy" />
-                        <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h5">Buy a Home</Typography>
-                        <Button style={{ marginBottom: '1rem', color: '#ff5a3c' }} variant="text">Find a Home</Button>
+                        <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d', pb: 3 }} variant="h5">Buy a Home</Typography>
                     </Paper>
                 </Grid>
                 <Grid style={{ zIndex: '99' }} item xs={12} md={4} sm={4}>
                     <Paper elevation={2}>
                         <img style={{ marginTop: '1rem' }} src={rent} alt="rent a home" loading="lazy" />
-                        <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h5">Rent a Home</Typography>
-                        <Button style={{ marginBottom: '1rem', color: '#ff5a3c' }} variant="text">Find a Home</Button>
+                        <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d', pb: 3 }} variant="h5">Rent a Home</Typography>
                     </Paper>
                 </Grid>
                 <Grid style={{ zIndex: '99' }} item xs={12} md={4} sm={4}>
                     <Paper elevation={2}>
                         <img style={{ marginTop: '1rem' }} src={sell} alt="sell a home" loading="lazy" />
-                        <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h5">Sell a Home</Typography>
-                        <Button style={{ marginBottom: '1rem', color: '#ff5a3c' }} variant="text">Find a Home</Button>
+                        <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d', pb: 3 }} variant="h5">Sell a Home</Typography>
                     </Paper>
                 </Grid>
             </Grid>

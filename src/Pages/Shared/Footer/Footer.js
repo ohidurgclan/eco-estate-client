@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 
 const Footer = () => {
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, mt:5 }}>
             <AppBar style={{backgroundColor: '#0A2C3D' }}  position="static">
                 <Toolbar>
                     <Typography style={{ fontFamily: 'ubuntu', fontWeight: '500', margin: '3vmin', textAlign: 'center' }} variant="h6" component="div" sx={{ flexGrow: 1 }}>

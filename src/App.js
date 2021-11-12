@@ -9,6 +9,8 @@ import Explore from './Pages/Explore/Explore';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import AddService from './Pages/Admin/AddService/AddService';
+import Login from './Pages/Login/Login/Login';
+import SignUp from './Pages/Login/SignUp/SignUp';
 
 function App() {
   return (
@@ -33,6 +35,12 @@ function App() {
           </Route>
           <Route exact path="/addService">
             <AddService></AddService>
+          </Route>
+          <Route exact path="/login">
+            <Login></Login>
+          </Route>
+          <Route exact path="/signup">
+            <SignUp></SignUp>
           </Route>
           <Route exact path="*">
             <Notfound></Notfound>
