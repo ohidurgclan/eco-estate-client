@@ -5,6 +5,10 @@ import Home from './Pages/Home/Home/Home';
 import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Footer/Footer';
 import Notfound from './Pages/Shared/Notfound/Notfound';
+import Explore from './Pages/Explore/Explore';
+import About from './Pages/About/About';
+import Contact from './Pages/Contact/Contact';
+import AddService from './Pages/Admin/AddService/AddService';
 
 function App() {
   return (
@@ -17,6 +21,18 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Home></Home>
+          </Route>
+          <Route exact path="/services">
+            <Explore></Explore>
+          </Route>
+          <Route exact path="/about">
+            <About></About>
+          </Route>
+          <Route exact path="/contact">
+            <Contact></Contact>
+          </Route>
+          <Route exact path="/addService">
+            <AddService></AddService>
           </Route>
           <Route exact path="*">
             <Notfound></Notfound>
