@@ -1,0 +1,20 @@
+.review-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.review-form input {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 2.2rem;
+}
+.order-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.order-form input {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 2.2rem;
+}
