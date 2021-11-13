@@ -7,10 +7,11 @@ import Typography from '@mui/material/Typography';
 import { Button, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import LocationIcon from '@mui/icons-material/RoomRounded';
+import { NavLink } from 'react-router-dom';
 
 
 const Services = (props) => {
-    const { name, detail, location, rate, price, status, img } = props.service;
+    const { key, name, detail, location, rate, price, status, img } = props.service;
     return (
         <Grid item xs={12} md={4} sm={4}>
             <Card sx={{ maxWidth: 368 }}>
@@ -39,8 +40,8 @@ const Services = (props) => {
                 <Typography sx={{ fontFamily: 'ubuntu', color: '#0a2c3d' }} variant="body2">
                     {detail.slice(0, 80)}
                 </Typography>
-                    <Box style={{display: 'flex', justifyContent: 'space-between', marginTop: '1rem'}}>
-                        <Button style={{ backgroundColor: '#ff5a3c' }} variant="contained">Details</Button>
+                    <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
+                        <NavLink style={{ textDecoration: 'none' }} to={`/service/${key}`}><Button style={{ backgroundColor: '#ff5a3c', textDecoration: 'none' }} variant="contained">Details</Button></NavLink> 
                         <Typography sx={{ fontFamily: 'ubuntu', color: '#0a2c3d', marginLeft: '0.2rem', textTransform: 'capitalize' }} variant="h6">{status}</Typography>
                     </Box>
             </CardContent>

@@ -12,6 +12,8 @@ import Contact from './Pages/Contact/Contact';
 import AddService from './Pages/Admin/AddService/AddService';
 import Login from './Pages/Login/Login/Login';
 import SignUp from './Pages/Login/SignUp/SignUp';
+import PrivateRoute from './Pages/Login/PrivareRoute/PrivateRoute';
+import UserPrivate from './Pages/UserPrivate/UserPrivate/UserPrivate';
 
 function App() {
   return (
@@ -28,9 +30,12 @@ function App() {
           <Route exact path="/services">
             <Explore></Explore>
           </Route>
-          <Route exact path="/about">
+          <PrivateRoute exact path="/service/:serviceKey">
+            <UserPrivate></UserPrivate>
+          </PrivateRoute>
+          <PrivateRoute exact path="/about">
             <About></About>
-          </Route>
+          </PrivateRoute>
           <Route exact path="/contact">
             <Contact></Contact>
           </Route>

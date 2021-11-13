@@ -9,7 +9,7 @@ initializeFirebase();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
     const [token, setToken] = useState('');
@@ -18,7 +18,7 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
 
     const registerUser = (email, password, name, history) => {
-        setIsLoading(true);
+        setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
@@ -32,41 +32,41 @@ const useFirebase = () => {
                 }).then(() => {
                 }).catch((error) => {
                 });
-                history.replace('/');
+                history.replace('/home');
             })
             .catch((error) => {
                 setAuthError(error.message);
                 console.log(error);
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => setLoading(false));
     }
 
     const loginUser = (email, password, location, history) => {
-        setIsLoading(true);
+        setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+                const terGet = location?.state?.from || '/home';
+                history.replace(terGet);
                 setAuthError('');
             })
             .catch((error) => {
                 setAuthError(error.message);
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => setLoading(false));
     }
 
     const signInWithGoogle = (location, history) => {
-        setIsLoading(true);
+        setLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+                const terGet = location?.state?.from || '/home';
+                history.replace(terGet);
             }).catch((error) => {
                 setAuthError(error.message);
-            }).finally(() => setIsLoading(false));
+            }).finally(() => setLoading(false));
     }
 
     // Observe User Work
@@ -81,7 +81,7 @@ const useFirebase = () => {
             } else {
                 setUser({})
             }
-            setIsLoading(false);
+            setLoading(false);
         });
         return () => unsubscribed;
     }, [auth])
@@ -93,13 +93,13 @@ const useFirebase = () => {
     }, [user.email])
 
     const logOut = () => {
-        setIsLoading(true);
+        setLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {
             // An error happened.
         })
-            .finally(() => setIsLoading(false));
+            .finally(() => setLoading(false));
     }
 
     const saveUser = (email, displayName, method) => {
@@ -118,7 +118,7 @@ const useFirebase = () => {
         user,
         admin,
         token,
-        isLoading,
+        loading,
         authError,
         registerUser,
         loginUser,
