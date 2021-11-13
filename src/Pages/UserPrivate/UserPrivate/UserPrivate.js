@@ -63,7 +63,7 @@ const UserPrivate = () => {
                         </Box>
                     <Box style={{display: 'flex', justifyContent: 'space-between', margin: '1.5rem' }}>
 
-                    <Typography sx={{ fontFamily: 'ubuntu', color: '#0a2c3d', }} variant="h6">
+                    <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '600', color: '#0a2c3d', }} variant="h5">
                         Price: $ {singleService?.price}
                     </Typography>       
                         </Box>
