@@ -13,7 +13,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {
   Switch,
-  Route,
   useRouteMatch,
   NavLink
 } from "react-router-dom";
@@ -23,6 +22,7 @@ import Payment from '../Payment/Payment';
 import { Button } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import ManageOrder from '../ManageOrder/ManageOrder';
 
 const drawerWidth = 240;
 
@@ -132,9 +132,12 @@ const AdminDashBoard = (props) => {
         <AdminRoute path={`${path}/makeAdmin`}>
           <CreateAdmin></CreateAdmin>
         </AdminRoute>
+        <AdminRoute path={`${path}/manageOrder`}>
+          <ManageOrder></ManageOrder>
+        </AdminRoute>
         <AdminRoute path={`${path}/paymentProcess`}>
           <Payment></Payment>
-        </AdminRoute>
+        </AdminRoute>    
       </Switch>     
       </Box>
     </Box>
