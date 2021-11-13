@@ -1,6 +1,8 @@
 import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import useServices from '../../../hooks/useServices';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 import Services from '../../Shared/Services/Services';
 import HomeSlider from '../HeaderSlider/HeaderSlider';
 import HomeContact from '../HomeContact/HomeContact';
@@ -10,6 +12,7 @@ const Home = () => {
     const [services] = useServices();
     return (
         <>
+            <Header/>
             <HomeSlider></HomeSlider>
             <Worship></Worship>
             <Container sx={{ mt: 5, mb: 5 }}>
@@ -24,6 +27,7 @@ const Home = () => {
             </Grid>
             </Container>
             <HomeContact></HomeContact>
+            <Footer/>
         </>
     );
 };

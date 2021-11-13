@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import './UserPrivate.css';
 import useAuth from '../../../hooks/useAuth';
+import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 const UserPrivate = () => {
     const { user } = useAuth();
@@ -47,7 +49,10 @@ const UserPrivate = () => {
         setSingleService(foundService);
     }, [services]);
     return (
-        <Container style={{ marginTop: '4rem', marginBottom: '4rem' }} sx={{textAlign: 'center', fontFamily: 'ubuntu'}}>
+        
+     <>
+        <Header/>
+        <Container style={{ marginTop: '4rem', marginBottom: '4rem' }} sx={{ textAlign: 'center', fontFamily: 'ubuntu' }}>
             <Grid container spacing={5}>
                 <Grid style={{ marginTop: '6rem', marginBottom: '4rem' }} item xs={7} md={7} sm={7}>
                     <Paper sx={{ mb: 5, height: '45rem' }} elevation={2}>
@@ -103,6 +108,8 @@ const UserPrivate = () => {
                 </Grid>
             </Grid>
         </Container>
+        <Footer/>
+        </>
     );
 };
 

@@ -4,6 +4,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 import './SignUp.css';
 
 const SignUp = () => {
@@ -20,6 +22,8 @@ const SignUp = () => {
     };
     
     return (
+        <>
+        <Header />
         <Container>
             <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d', mt: 5, mb: 5 }} variant="h4">*Please Ragister</Typography>
             {user?.email && <Alert style={{ width: '37.8%' }} severity="success">Registered Successfully</Alert>}
@@ -39,7 +43,9 @@ const SignUp = () => {
             </NavLink>
             <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h5">- - - - - - - - - - - - - - - - - OR - - - - - - - - - - - - - - - - -</Typography>
             <Button style={{ width: '20%', height: '2.5rem', backgroundColor: '#ff5a3c', color: '#fff', marginTop: '3rem', marginBottom: '2rem' }} type="submit">Sign Up With Google</Button>
-        </Container>
+        </Container>    
+        <Footer/>
+        </>
     );
 };
 

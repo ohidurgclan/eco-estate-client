@@ -23,6 +23,10 @@ import { Button } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import ManageOrder from '../ManageOrder/ManageOrder';
+import PrivateRoute from '../../Login/PrivareRoute/PrivateRoute';
+import MyOrder from '../../User/MyOrder/MyOrder';
+import MyFeedback from '../../User/MyFeedback/MyFeedback';
+import ManageProduct from '../ManageProduct/ManageProduct';
 
 const drawerWidth = 240;
 
@@ -45,12 +49,17 @@ const AdminDashBoard = (props) => {
       <Divider />
         <List>
           <ListItem>
-                  {admin && <Box  style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '3rem' }}>
-                        <NavLink to={ `${url}/makeAdmin` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Make Admin</NavLink>
-                        <NavLink to={`${url}/addProducts`} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Add Products</NavLink>
-                        <NavLink to={ `${url}/manageProduct` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Manage Product</NavLink> 
-                        <NavLink to={`${url}/manageOrder`} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Manage Order</NavLink>
-                        <NavLink to={ `${url}/paymentProcess` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Payment</NavLink> 
+                  {admin ? <Box  style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '3rem' }}>
+                    <NavLink to={ `${url}/makeAdmin` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Make Admin</NavLink>
+                    <NavLink to={`${url}/addProducts`} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Add Services</NavLink>
+                    <NavLink to={ `${url}/manageProduct` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Manage Product</NavLink> 
+                    <NavLink to={`${url}/manageOrder`} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Manage Order</NavLink>
+                    <NavLink to={ `${url}/paymentProcess` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Payment</NavLink> 
+                  </Box> :
+                  <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '3rem' }}>
+                    <NavLink to={ `${url}/myOrders` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>My Orders</NavLink> 
+                    <NavLink to={ `${url}/myFeedback` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>My Review</NavLink>
+                    <NavLink to={ `${url}/paymentProcess` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Payment</NavLink>
                   </Box>}
             <ListItemText/>
           </ListItem>
@@ -63,7 +72,8 @@ const AdminDashBoard = (props) => {
     return (
         <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
+        <AppBar
+          style={{backgroundColor: '#0a2c3d'}}
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -81,9 +91,7 @@ const AdminDashBoard = (props) => {
             <MenuIcon />
           </IconButton>
           <Box style={{ display: 'flex' }} >
-                <Typography sx={{ m: 5 }} variant="h6" noWrap component="div">
-                    Admin Backend Dashboard
-                </Typography>
+                {admin ? <Typography sx={{ m: 5 }} variant="h6" noWrap component="div">Admin Backend Dashboard</Typography> : <Typography sx={{ m: 5 }} variant="h6" noWrap component="div">User Dashboard</Typography>}
                 <Button style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textTransform: 'capitalize' }} onClick={logOut} variant="text">Logout</Button>
           </Box>
         </Toolbar>
@@ -125,19 +133,28 @@ const AdminDashBoard = (props) => {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
     <Toolbar />
-        <Switch>           
+      <Switch>
+        <PrivateRoute path={`${path}/myOrders`}>
+          <MyFeedback></MyFeedback>
+        </PrivateRoute>
+        <PrivateRoute path={`${path}/myFeedback`}>
+          <MyOrder></MyOrder>
+        </PrivateRoute>
+        <PrivateRoute path={`${path}/paymentProcess`}>
+          <Payment></Payment>
+        </PrivateRoute>     
         <AdminRoute path={`${path}/addProducts`}>
           <AddService></AddService>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageProduct`}>
+          <ManageProduct></ManageProduct>
         </AdminRoute>
         <AdminRoute path={`${path}/makeAdmin`}>
           <CreateAdmin></CreateAdmin>
         </AdminRoute>
         <AdminRoute path={`${path}/manageOrder`}>
           <ManageOrder></ManageOrder>
-        </AdminRoute>
-        <AdminRoute path={`${path}/paymentProcess`}>
-          <Payment></Payment>
-        </AdminRoute>    
+        </AdminRoute>   
       </Switch>     
       </Box>
     </Box>
