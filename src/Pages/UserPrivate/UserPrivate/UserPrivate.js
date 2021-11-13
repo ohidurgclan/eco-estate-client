@@ -21,8 +21,8 @@ const UserPrivate = () => {
             .then(res => {
                 if (res.data.insertedId)
                 {
-                    alert('added successfully');
-                    reset();
+                    alert('Review added successfully');
+                    reset('');
                 }
             });
     };
@@ -30,11 +30,12 @@ const UserPrivate = () => {
     const orderData = (orderItem) => {
         orderItem.serviceName = singleService?.name;
         orderItem.userEmail = user?.email;
+        orderItem.status = "Pending";
         axios.post('http://localhost:5030/user_order', orderItem)
             .then(res => {
                 if (res.data.insertedId)
                 {
-                    alert('added successfully');
+                    alert('Order added successfully');
                     reset();
                 }
             });
