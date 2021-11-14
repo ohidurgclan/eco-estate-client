@@ -6,6 +6,7 @@ import Header from '../../Shared/Header/Header';
 import Services from '../../Shared/Services/Services';
 import HomeSlider from '../HeaderSlider/HeaderSlider';
 import HomeContact from '../HomeContact/HomeContact';
+import HomeReview from '../HomeReview/HomeReview';
 import Worship from '../Worship/Worship';
 
 const Home = () => {
@@ -27,7 +28,8 @@ const Home = () => {
             </Grid>
             </Container>
             <HomeContact></HomeContact>
-            <Footer/>
+            <HomeReview></HomeReview>
+            <Footer />
         </>
     );
 };

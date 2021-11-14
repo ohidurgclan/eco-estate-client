@@ -17,11 +17,11 @@ const ManageProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount) {
-          alert("Product Item Deleted");
-          const deleteItem = product.filter(book => book._id !== id);
-          setProduct(deleteItem);
-        }
+      if (data.deletedCount) {
+        alert("Product Item Deleted");
+        const deleteItem = product.filter(book => book._id !== id);
+        setProduct(deleteItem);
+      }
       });
   };
     

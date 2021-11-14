@@ -19,6 +19,7 @@ const UserPrivate = () => {
     const { register, handleSubmit, reset } = useForm();
     const reviewData = (data) => {
         data.serviceName = singleService?.name;
+        data.userEmail = user?.email;
         axios.post('http://localhost:5030/user_review', data)
             .then(res => {
                 if (res.data.insertedId)
@@ -83,7 +84,7 @@ const UserPrivate = () => {
                         <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h4">Give Feedback</Typography>
                         <form className="review-form" onSubmit={handleSubmit(reviewData)}>
                             <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h6">Your Hosted Image Link</Typography>
-                            <input type="text" placeholder="Image Link" {...register("Image Url", {required: false})} />
+                            <input type="text" placeholder="Image Link" {...register("Image", {required: false})} />
                             <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h6">Your Name</Typography>
                             <input type="text" placeholder="name" {...register("feedbackName", {required: false, max: 200})} />
                             <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h6">Your Review</Typography>

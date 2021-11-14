@@ -21,7 +21,6 @@ const HomeContact = () => {
                             scram bled it to make a type specimen bookhas survived not only centuriesalwith the release of Letraset
                             sheets containing Lorem Ipsum passages, and more recently.
                         </Typography>
-                        <Button style={{ marginBottom: '5vmin', backgroundColor: '#ff5a3c' }} variant="contained">Conatact Us</Button>
                     </Paper>
                 </Grid>
                 <Grid item xs={12} md={6} sm={6}>

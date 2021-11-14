@@ -11,11 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {
-  Switch,
-  useRouteMatch,
-  NavLink
-} from "react-router-dom";
+import { Switch, useRouteMatch, NavLink } from "react-router-dom";
 import CreateAdmin from '../CreateAdmin/CreateAdmin';
 import AddService from '../AddService/AddService';
 import Payment from '../Payment/Payment';
