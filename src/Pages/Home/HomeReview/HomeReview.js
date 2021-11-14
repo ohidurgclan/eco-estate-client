@@ -12,7 +12,17 @@ const HomeReview = () => {
       autoplay: true,
       speed: 2000,
       autoplaySpeed: 2000,
-      cssEase: "linear"
+      cssEase: "linear",
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      }]
+
+    
     };
     
     return (
