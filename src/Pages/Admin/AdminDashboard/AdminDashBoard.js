@@ -91,8 +91,9 @@ const AdminDashBoard = (props) => {
             <MenuIcon />
           </IconButton>
           <Box style={{ display: 'flex' }} >
-                {admin ? <Typography sx={{ m: 5 }} variant="h6" noWrap component="div">Admin Backend Dashboard</Typography> : <Typography sx={{ m: 5 }} variant="h6" noWrap component="div">User Dashboard</Typography>}
-                <Button style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textTransform: 'capitalize' }} onClick={logOut} variant="text">Logout</Button>
+              {admin ? <Typography sx={{ m: 5 }} variant="h6" noWrap component="div">Admin Backend Dashboard</Typography> : <Typography sx={{ m: 5 }} variant="h6" noWrap component="div">User Dashboard</Typography>}
+              <NavLink to="/home" sx={{ m: 5 }} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#fff', fontSize: '1.2rem', marginTop: '2.6rem', textDecoration: 'none' }}>Return Home</NavLink>
+              <Button style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginLeft: '2rem', textTransform: 'capitalize' }} onClick={logOut} variant="text">Logout</Button>
           </Box>
         </Toolbar>
       </AppBar>
@@ -135,10 +136,10 @@ const AdminDashBoard = (props) => {
     <Toolbar />
       <Switch>
         <PrivateRoute path={`${path}/myOrders`}>
-          <MyFeedback></MyFeedback>
+          <MyOrder></MyOrder>
         </PrivateRoute>
         <PrivateRoute path={`${path}/myFeedback`}>
-          <MyOrder></MyOrder>
+          <MyFeedback></MyFeedback>
         </PrivateRoute>
         <PrivateRoute path={`${path}/paymentProcess`}>
           <Payment></Payment>
