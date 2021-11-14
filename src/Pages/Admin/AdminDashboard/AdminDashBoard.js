@@ -23,6 +23,7 @@ import PrivateRoute from '../../Login/PrivareRoute/PrivateRoute';
 import MyOrder from '../../User/MyOrder/MyOrder';
 import MyFeedback from '../../User/MyFeedback/MyFeedback';
 import ManageProduct from '../ManageProduct/ManageProduct';
+import ManageReview from '../ManageReview/ManageReview';
 
 const drawerWidth = 240;
 
@@ -50,6 +51,7 @@ const AdminDashBoard = (props) => {
                     <NavLink to={`${url}/addProducts`} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Add Services</NavLink>
                     <NavLink to={ `${url}/manageProduct` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Manage Product</NavLink> 
                     <NavLink to={`${url}/manageOrder`} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Manage Order</NavLink>
+                    <NavLink to={`${url}/manageUserReview`} style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Manage Review</NavLink>
                     <NavLink to={ `${url}/paymentProcess` } style={{ fontFamily: 'ubuntu', fontWeight: '400', color: '#0a2c3d', fontSize: '1.2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Payment</NavLink> 
                   </Box> :
                   <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '3rem' }}>
@@ -151,7 +153,10 @@ const AdminDashBoard = (props) => {
         </AdminRoute>
         <AdminRoute path={`${path}/manageOrder`}>
           <ManageOrder></ManageOrder>
-        </AdminRoute>   
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageUserReview`}>
+          <ManageReview></ManageReview>
+        </AdminRoute>     
       </Switch>     
       </Box>
     </Box>

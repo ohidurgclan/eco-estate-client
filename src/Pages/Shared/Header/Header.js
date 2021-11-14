@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-    const {user, admin, logOut} = useAuth();
+    const {user, logOut} = useAuth();
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar style={{backgroundColor: '#0A2C3D' }}  position="static">
@@ -19,7 +19,11 @@ const Header = () => {
                     <NavLink to="/home" style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Home</NavLink>
                     <NavLink to="/services" style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Explore</NavLink>
                     {user?.email ? <NavLink to="/admindashboard" style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Dashboard</NavLink> : ''}
-                    {user?.email ? <Button style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textTransform: 'capitalize' }} onClick={logOut} variant="text">Logout</Button> : <NavLink to="/login" style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Login</NavLink>}
+                    {user?.email ? <Button style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textTransform: 'capitalize' }} onClick={logOut} variant="text">Logout</Button>
+                    : <Box>
+                            <NavLink to="/login" style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Login</NavLink>
+                            <NavLink to="/signup" style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }} activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Ragister</NavLink>        
+                    </Box>}
                 </Toolbar>
             </AppBar>
         </Box>

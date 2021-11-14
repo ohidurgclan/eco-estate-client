@@ -7,11 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button, Container } from '@mui/material';
-import useAuth from '../../../hooks/useAuth';
 
-const MyFeedback = () => {
-    const { user } = useAuth();
-    const [item, setItem] = React.useState([]);
+const ManageReview = () => {
+    const [review, setReview] = React.useState([]);
     const deleteFeedback = (id) => {
     const url = `http://localhost:5030/user_review/${id}`;
     fetch(url, {
@@ -20,17 +18,17 @@ const MyFeedback = () => {
       .then((res) => res.json())
       .then((data) => {
       if (data.deletedCount) {
-        alert("Feedback Deleted");
-        const deleteItem = item.filter(book => book._id !== id);
-        setItem(deleteItem);
+        alert("Review Item Deleted");
+        const deleteItem = review.filter(book => book._id !== id);
+        setReview(deleteItem);
       }
       });
     }; 
     React.useEffect(() => {
-        fetch(`http://localhost:5030/user_review/${user.email}`)
+        fetch(`http://localhost:5030/user_review/`)
         .then((res) => res.json())
         .then((data) => {
-            setItem(data);
+            setReview(data);
         });
     }, []); 
     
@@ -40,14 +38,14 @@ const MyFeedback = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                     <TableRow >
-                        <TableCell style={{color: '#ff5a3c', fontSize: '1.4rem', fontWeight: '500'}}>My Feedback</TableCell>
+                        <TableCell style={{color: '#ff5a3c', fontSize: '1.4rem', fontWeight: '500'}}>User Review</TableCell>
                         <TableCell style={{color: '#ff5a3c', fontSize: '1.4rem', fontWeight: '500'}}>Service Name</TableCell>
-                        <TableCell style={{color: '#ff5a3c', fontSize: '1.4rem', fontWeight: '500'}}>Feedback Name</TableCell>
+                        <TableCell style={{color: '#ff5a3c', fontSize: '1.4rem', fontWeight: '500'}}>User Name</TableCell>
                         <TableCell style={{color: '#ff5a3c', fontSize: '1.4rem', fontWeight: '500'}} align='right'>Cancil Feedback</TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                    {item.map((row) => (
+                    {review.map((row) => (
                         <TableRow
                         key={row.name}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -65,4 +63,4 @@ const MyFeedback = () => {
     );
 };
 
-export default MyFeedback;<h2>I am my feedback</h2>
+export default ManageReview;

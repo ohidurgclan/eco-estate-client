@@ -41,8 +41,6 @@ const SignUp = () => {
             <NavLink style={{ textDecoration: 'none' }} to="/login">
                 <Button style={{ color: '#0a2c3d', fontSize: '1.1rem', marginBottom: '2rem'}} variant="text" type="submit">Already Ragistered? Please Login</Button>
             </NavLink>
-            <Typography sx={{ fontFamily: 'ubuntu', fontWeight: '500', color: '#0a2c3d' }} variant="h5">- - - - - - - - - - - - - - - - - OR - - - - - - - - - - - - - - - - -</Typography>
-            <Button style={{ width: '20%', height: '2.5rem', backgroundColor: '#ff5a3c', color: '#fff', marginTop: '3rem', marginBottom: '2rem' }} type="submit">Sign Up With Google</Button>
         </Container>    
         <Footer/>
         </>
