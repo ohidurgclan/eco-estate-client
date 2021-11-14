@@ -32,7 +32,7 @@ const MyFeedback = () => {
         .then((data) => {
             setItem(data);
         });
-    }, []); 
+    }, [user.email]); 
     
     return (
         <Container style={{marginTop: '5rem'}}>    

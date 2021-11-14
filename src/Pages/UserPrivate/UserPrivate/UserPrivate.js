@@ -48,7 +48,7 @@ const UserPrivate = () => {
     {
         const foundService = services.find(service => service.key === serviceKey);
         setSingleService(foundService);
-    }, [services]);
+    }, [services, serviceKey]);
     return (
         
      <>

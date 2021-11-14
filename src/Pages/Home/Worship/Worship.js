@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
 import buy from '../homeImage/icon/buy.png';
 import rent from '../homeImage/icon/rent.png';
 import sell from '../homeImage/icon/sell.png';

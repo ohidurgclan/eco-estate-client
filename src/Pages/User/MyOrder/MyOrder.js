@@ -35,7 +35,7 @@ const MyOrder = () => {
       .then((data) => {
         setBooking(data);
       });
-  }, []);
+  }, [user.email]);
     
     
     
