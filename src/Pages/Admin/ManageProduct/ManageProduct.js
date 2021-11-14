@@ -11,7 +11,7 @@ import { Button, Container } from '@mui/material';
 const ManageProduct = () => {
     const [product, setProduct] = React.useState([]);
     const deleteProduct = (id) => {
-    const url = `http://localhost:5030/services/${id}`;
+    const url = `https://mighty-mountain-95987.herokuapp.com/services/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -27,7 +27,7 @@ const ManageProduct = () => {
     
     
     React.useEffect(() => {
-    fetch(`http://localhost:5030/services`)
+    fetch(`https://mighty-mountain-95987.herokuapp.com/services`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

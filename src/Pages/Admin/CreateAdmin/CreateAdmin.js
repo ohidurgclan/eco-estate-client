@@ -9,7 +9,7 @@ const CreateAdmin = () => {
     }
     const adminSubmit = e => {
         const user = { email };
-        fetch('http://localhost:5030/users/admin', {
+        fetch('https://mighty-mountain-95987.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

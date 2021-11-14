@@ -9,7 +9,7 @@ const AddService = () => {
     const onSubmit = data => {
         console.log(data)
         
-        axios.post('http://localhost:5030/services', data)
+        axios.post('https://mighty-mountain-95987.herokuapp.com/services', data)
             .then(res => {
                 if (res.data.insertedId)
                 {

@@ -12,7 +12,7 @@ const ManageOrder = () => {
     const [orderBooking, setOrderBooking] = React.useState([]);
     const handleUpdate = (id) => {
     const updateStatus = { status: "Approved" };
-    const url = `http://localhost:5030/user_order/${id}`;
+    const url = `https://mighty-mountain-95987.herokuapp.com/user_order/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -24,7 +24,7 @@ const ManageOrder = () => {
       .then((data) => {
         if (data.modifiedCount) {
           alert("Updated Succefully");
-          fetch(`http://localhost:5030/user_order`)
+          fetch(`https://mighty-mountain-95987.herokuapp.com/user_order`)
             .then((res) => res.json())
             .then((data) => {
               setOrderBooking(data);
@@ -33,7 +33,7 @@ const ManageOrder = () => {
       });
     };
     React.useEffect(() => {
-    fetch(`http://localhost:5030/user_order`)
+    fetch(`https://mighty-mountain-95987.herokuapp.com/user_order`)
       .then((res) => res.json())
       .then((data) => {
         setOrderBooking(data);

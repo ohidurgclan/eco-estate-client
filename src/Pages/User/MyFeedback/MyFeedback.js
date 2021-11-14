@@ -13,7 +13,7 @@ const MyFeedback = () => {
     const { user } = useAuth();
     const [item, setItem] = React.useState([]);
     const deleteFeedback = (id) => {
-    const url = `http://localhost:5030/user_review/${id}`;
+    const url = `https://mighty-mountain-95987.herokuapp.com/user_review/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -27,7 +27,7 @@ const MyFeedback = () => {
       });
     }; 
     React.useEffect(() => {
-        fetch(`http://localhost:5030/user_review/${user.email}`)
+        fetch(`https://mighty-mountain-95987.herokuapp.com/user_review/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
             setItem(data);

@@ -20,7 +20,7 @@ const UserPrivate = () => {
     const reviewData = (data) => {
         data.serviceName = singleService?.name;
         data.userEmail = user?.email;
-        axios.post('http://localhost:5030/user_review', data)
+        axios.post('https://mighty-mountain-95987.herokuapp.com/user_review', data)
             .then(res => {
                 if (res.data.insertedId)
                 {
@@ -34,7 +34,7 @@ const UserPrivate = () => {
         orderItem.serviceName = singleService?.name;
         orderItem.userEmail = user?.email;
         orderItem.status = "Pending";
-        axios.post('http://localhost:5030/user_order', orderItem)
+        axios.post('https://mighty-mountain-95987.herokuapp.com/user_order', orderItem)
             .then(res => {
                 if (res.data.insertedId)
                 {

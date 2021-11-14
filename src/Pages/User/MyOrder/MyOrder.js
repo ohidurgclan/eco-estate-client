@@ -14,7 +14,7 @@ const MyOrder = () => {
     const { user } = useAuth();
     // Delete Booking API
   const handleDelete = (id) => {
-    const url = `http://localhost:5030/user_order/${id}`;
+    const url = `https://mighty-mountain-95987.herokuapp.com/user_order/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -30,7 +30,7 @@ const MyOrder = () => {
 
   // load data useEffect
     useEffect(() => {
-    fetch(`http://localhost:5030/user_order/${user.email}`)
+    fetch(`https://mighty-mountain-95987.herokuapp.com/user_order/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBooking(data);

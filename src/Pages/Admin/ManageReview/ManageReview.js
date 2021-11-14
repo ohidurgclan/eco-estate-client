@@ -11,7 +11,7 @@ import { Button, Container } from '@mui/material';
 const ManageReview = () => {
     const [review, setReview] = React.useState([]);
     const deleteFeedback = (id) => {
-    const url = `http://localhost:5030/user_review/${id}`;
+    const url = `https://mighty-mountain-95987.herokuapp.com/user_review/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -25,7 +25,7 @@ const ManageReview = () => {
       });
     }; 
     React.useEffect(() => {
-        fetch(`http://localhost:5030/user_review/`)
+        fetch(`https://mighty-mountain-95987.herokuapp.com/user_review/`)
         .then((res) => res.json())
         .then((data) => {
             setReview(data);
