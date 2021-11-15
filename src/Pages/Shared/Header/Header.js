@@ -117,7 +117,7 @@ return (
                     :
                 <Box style={{ margin: '2rem' }}>
                     <NavLink to="/login"
-                        style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem',marginRight: '2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }}
+                        style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', color: '#fff', marginRight: '2rem', textDecoration: 'none' }}
                         activeStyle={{ fontWeight: "600", color: "#ff5a3c" }}>Login</NavLink>
                     <NavLink to="/signup"
                         style={{ fontFamily: 'ubuntu', fontWeight: '400', fontSize: '1.2rem', marginLeft: '2rem', color: '#fff', textDecoration: 'none' }}
